@@ -1,7 +1,11 @@
 # Data cleaning app for exported data
 
-# Environment
-Python, Ollama and pandas
+# Language
+Python
+# Dependencies
+
+Ollama
+pandas
 
 ## Input
 A .zip, or text file
@@ -20,5 +24,13 @@ The Ollama model is used to verify this.
 
 # Requirements
 * MUST RUN completely local. No network operations. To align with data protection.
-* PyPI package
-* Show disclaimer when running tool it is an aid but not warranty and the user is still responsible. Can be auto accepted with -y.
+* PyPI package structure
+
+* Show disclaimer when running tool it is an aid but not warranty and the user is still responsible. This tool is not using any external services
+Arguments with standard python arguments library:
+* Default to output the same file name but with the stripped data in text files. Use -o to specify custom output directory.
+* Can be auto accepted with -y.
+* Arg for model.
+* Creates an audit trail log of everything it did with row numbers and operations in an .audit.log file (location can be customized with a flag)
+* Can be run in supervised mode (default), each file cleaning is shown as a diff the user has to accept, amend or reject.
+* 
