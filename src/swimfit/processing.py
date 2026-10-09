@@ -8,7 +8,7 @@ from pathlib import Path
 
 import pandas as pd
 
-from swimler.anonymizer import Detector, anonymize_line
+from swimfit.anonymizer import Detector, anonymize_line
 
 
 def _clean_rows(

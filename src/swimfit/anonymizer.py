@@ -21,7 +21,7 @@ class LocalOllamaVerifier:
         try:
             from ollama import Client
         except ImportError as exc:
-            raise RuntimeError("Install swimler with its Ollama dependency.") from exc
+            raise RuntimeError("Install swimfit with its Ollama dependency.") from exc
         self.client: Any = Client(host="http://127.0.0.1:11434")
         self.model = model
 
