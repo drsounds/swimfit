@@ -2,7 +2,7 @@ import io
 import unittest
 import zipfile
 
-from swimler.processing import clean_bytes, clean_zip
+from swimfit.processing import clean_bytes, clean_zip
 
 
 def no_entities(_text):

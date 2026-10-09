@@ -1,6 +1,6 @@
 import unittest
 
-from swimler.anonymizer import anonymize_line
+from swimfit.anonymizer import anonymize_line
 
 
 def no_entities(_text):

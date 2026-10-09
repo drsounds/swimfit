@@ -1,4 +1,4 @@
-"""Command line interface for the Swimler anonymizer."""
+"""Command line interface for the Swimfit anonymizer."""
 
 from __future__ import annotations
 
@@ -15,11 +15,11 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Iterable
 
-from swimler.anonymizer import LocalOllamaVerifier
-from swimler.processing import clean_bytes, clean_zip
+from swimfit.anonymizer import LocalOllamaVerifier
+from swimfit.processing import clean_bytes, clean_zip
 
 DISCLAIMER = (
-    "Disclaimer: Swimler is an aid, not a guarantee of GDPR compliance. "
+    "Disclaimer: Swimfit is an aid, not a guarantee of GDPR compliance. "
     "You remain responsible for reviewing the output. Processing is local; "
     "no external services are used."
 )
@@ -27,7 +27,7 @@ DISCLAIMER = (
 
 def _parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
-        prog="swimler",
+        prog="swimfit",
         description="Anonymize personal data in a UTF-8 text file or ZIP archive.",
     )
     parser.add_argument("input", type=Path, help="Input text file or ZIP archive")
@@ -35,7 +35,7 @@ def _parser() -> argparse.ArgumentParser:
         "-o",
         "--output-dir",
         type=Path,
-        help="Output directory (default: <input directory>/swimler-output)",
+        help="Output directory (default: <input directory>/swimfit-output)",
     )
     parser.add_argument(
         "-y", "--yes", action="store_true", help="Accept all file changes automatically"
@@ -92,7 +92,7 @@ def _audit_write(path: Path, record: dict[str, object]) -> None:
 
 
 def _output_path(source: Path, output_dir: Path | None) -> Path:
-    directory = output_dir or source.parent / "swimler-output"
+    directory = output_dir or source.parent / "swimfit-output"
     return directory / source.name
 
 
@@ -216,11 +216,11 @@ def main(argv: list[str] | None = None) -> int:
             args.brand_word,
         )
     except (OSError, ValueError, zipfile.BadZipFile, subprocess.CalledProcessError) as exc:
-        print(f"swimler: {exc}", file=sys.stderr)
+        print(f"swimfit: {exc}", file=sys.stderr)
         return 2
     except Exception as exc:
         print(
-            f"swimler: local anonymization failed ({exc}). "
+            f"swimfit: local anonymization failed ({exc}). "
             "No output was written.",
             file=sys.stderr,
         )

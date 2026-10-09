@@ -4,7 +4,7 @@ import unittest
 from pathlib import Path
 from unittest.mock import patch
 
-from swimler.cli import main
+from swimfit.cli import main
 
 
 class NoopVerifier:
@@ -22,7 +22,7 @@ class CliTests(unittest.TestCase):
             output_dir = Path(directory) / "result"
             source.write_text("Contact jane@example.com\n", encoding="utf-8")
 
-            with patch("swimler.cli.LocalOllamaVerifier", NoopVerifier):
+            with patch("swimfit.cli.LocalOllamaVerifier", NoopVerifier):
                 result = main([str(source), "-o", str(output_dir), "-y"])
 
             output = output_dir / source.name

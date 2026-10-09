@@ -1,6 +1,6 @@
-# Swimler
+# Swimfit
 
-Swimler is a local-first Python tool for anonymizing text in exported files. It
+Swimfit is a local-first Python tool for anonymizing text in exported files. It
 redacts email addresses and phone numbers with regular expressions, then uses a
 local Ollama model to identify personal names and precise personal locations.
 It preserves configured brand names and copies binary ZIP members unchanged.
@@ -20,20 +20,20 @@ ollama pull llama3.2
 ## Usage
 
 ```shell
-swimler exported.zip
-swimler notes.txt --model llama3.2 --brand-word Swimler
-swimler exported.zip -o ./cleaned -y
-swimler contacts.csv --audit-log ./review/export.audit.log
+swimfit exported.zip
+swimfit notes.txt --model llama3.2 --brand-word Swimfit
+swimfit exported.zip -o ./cleaned -y
+swimfit contacts.csv --audit-log ./review/export.audit.log
 ```
 
 The input can be a ZIP archive or UTF-8 text file. Text members are anonymized
 and binary members remain unchanged. CSV, TSV, and TAB files are parsed as
 delimited tables. The output keeps the input filename and defaults to a
-`swimler-output` directory beside the input; `-o` selects another output
+`swimfit-output` directory beside the input; `-o` selects another output
 directory. Existing output files are not overwritten without confirmation
 (or `-y`).
 
-By default, Swimler presents a diff for each input file whose text changed.
+By default, Swimfit presents a diff for each input file whose text changed.
 Accept applies the changes, amend opens the cleaned file in `$EDITOR`, and
 reject keeps the original file contents. Use `-y` to accept changes
 automatically. The default model is `llama3.2`; use `--model` to select another
