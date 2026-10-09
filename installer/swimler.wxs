@@ -1,0 +1,23 @@
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
+  <Package
+    Name="Swimler"
+    Manufacturer="Swimler"
+    Version="$(var.Version)"
+    UpgradeCode="B6CF1AB6-C96E-4E07-A679-29D2772A5A84"
+    Scope="perMachine">
+    <MajorUpgrade DowngradeErrorMessage="A newer version of Swimler is already installed." />
+    <MediaTemplate EmbedCab="yes" />
+    <Feature Id="MainFeature" Title="Swimler" Level="1">
+      <ComponentRef Id="SwimlerExecutable" />
+    </Feature>
+  </Package>
+  <Fragment>
+    <StandardDirectory Id="ProgramFiles64Folder">
+      <Directory Id="INSTALLFOLDER" Name="Swimler">
+        <Component Id="SwimlerExecutable" Guid="*">
+          <File Id="SwimlerExecutableFile" Source="dist/swimler.exe" KeyPath="yes" />
+        </Component>
+      </Directory>
+    </StandardDirectory>
+  </Fragment>
+</Wix>
