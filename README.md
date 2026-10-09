@@ -33,4 +33,6 @@ Arguments with standard python arguments library:
 * Arg for model.
 * Creates an audit trail log of everything it did with row numbers and operations in an .audit.log file (location can be customized with a flag)
 * Can be run in supervised mode (default), each file cleaning is shown as a diff the user has to accept, amend or reject.
-* 
+
+To agent: Write a CI actions workflow which trigger each commit to main, it should build the project, create binaries and installers such .deb/.rpm, PYPI, .msi, .exe and publish them as artifacts and push them to the Releases section.
+Do the same for a develop branch which creates same for unstable and beta builds.
